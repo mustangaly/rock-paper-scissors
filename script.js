@@ -57,18 +57,34 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function game() {
+//function game() {
 
-    while (playerScore < 5 && computerScore < 5){
-        console.log(playRound(prompt("Do you want to play 'Rock,' 'Paper,' or 'Scissors?'"), computerPlay())); 
-    }
+ //   while (playerScore < 5 && computerScore < 5){
+ //       console.log(playRound(prompt("Do you want to play 'Rock,' 'Paper,' or 'Scissors?'"), computerPlay())); 
+ //   }
 
-    if (playerScore === 5){
-        return "You won the game! The score was player: " + playerScore + " vs. the computer: " + computerScore + ".";
-    }
-    else if (computerScore === 5){
-        return "You lost the game. The computer won. The score was player: " + playerScore + " vs. the computer: " + computerScore + ".";
-    }
-    else return "error";
+  //  if (playerScore === 5){
+  //      return "You won the game! The score was player: " + playerScore + " vs. the computer: " + computerScore + ".";
+  //  }
+  //  else if (computerScore === 5){
+  //      return "You lost the game. The computer won. The score was player: " + playerScore + " vs. the computer: " + computerScore + ".";
+  //  }
+   // else return "error";
 
-}
+//}
+
+const rButton = document.querySelector('#rockButton');
+const pButton = document.querySelector('#paperButton');
+const sButton = document.querySelector('#scissorsButton');
+
+rButton.addEventListener('click', () => {
+    alert(playRound("Rock", computerPlay()));
+});
+
+pButton.addEventListener('click', () => {
+    alert(playRound("Paper", computerPlay()));
+});
+
+sButton.addEventListener('click', () => {
+    alert(playRound("Scissors", computerPlay()));
+});
