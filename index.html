@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>ROCK PAPER SCISSORS</title>
+    <src rel = "stylesheet" href= "styles.css" ></src>
 </head>
 <body>
     <h1>Rock, Paper, Scissors - Shoot!</h1>
+    <img src = "rockpaperscissors.jpg"/>
     <div class="buttonContainer">
         <button id="rockButton">Rock</button>
         <button id="paperButton">Paper</button>
         <button id="scissorsButton">Scissors</button>
     </div>
-    <div class="results">
-        
+    <div class="roundResults">
+
+    </div>
+    <div class="resultsDiv">
+        <div class="scoreDiv">
+            <h1>Score Board</h1>
+            <div id="playerScoreDiv"> <!-- playerScoreDiv-->
+                <p id="playerScoreDisplay">Player:</p>
+            </div> 
+            <div id="computerScoreDiv"> <!-- computerScoreDiv-->
+                <p id="computerScoreDisplay">Computer:</p>
+            </div>    
+        </div>
     </div>
 <script src="script.js"></script>
 </body>
