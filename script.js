@@ -20,12 +20,26 @@ function updateScore() {
 function computerPlay() {
     let num = Math.floor(Math.random() *3); //returns a num: 0,1, or 2
     
+    while(computerSelectionDiv.hasChildNodes()){
+        computerSelectionDiv.removeChild(computerSelectionDiv.children[0]);
+    }
+
     if (num ===0){
-        
+        var computerRock = document.createElement('img');
+        computerRock.src="rock.jpeg";
+        computerSelectionDiv.appendChild(computerRock);
         return "Rock";
-    }     
-    else if (num === 1) return "Paper";
-    else return "Scissors";
+    } else if (num === 1){ 
+        var computerPaper = document.createElement('img');
+        computerPaper.src="paper.jpg";
+        computerSelectionDiv.appendChild(computerPaper);
+        return "Paper";
+    } else {
+        var computerScissors = document.createElement('img');
+        computerScissors.src="scissors.jpeg";
+        computerSelectionDiv.appendChild(computerScissors);
+        return "Scissors";
+    }
 }
 
 function capitalize(string) {

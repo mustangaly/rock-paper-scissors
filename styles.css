@@ -45,6 +45,11 @@ h3 {
     text-decoration: underline;
 }
 
+.resultsDiv{
+    display:flex;
+    justify-content:space-around;
+}
+
 #roundResult {
     display:flex;
     justify-content: center;
