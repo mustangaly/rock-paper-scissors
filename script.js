@@ -26,17 +26,17 @@ function computerPlay() {
 
     if (num ===0){
         var computerRock = document.createElement('img');
-        computerRock.src="rock.jpeg";
+        computerRock.src="rock.png";
         computerSelectionDiv.appendChild(computerRock);
         return "Rock";
     } else if (num === 1){ 
         var computerPaper = document.createElement('img');
-        computerPaper.src="paper.jpg";
+        computerPaper.src="paper.png";
         computerSelectionDiv.appendChild(computerPaper);
         return "Paper";
     } else {
         var computerScissors = document.createElement('img');
-        computerScissors.src="scissors.jpeg";
+        computerScissors.src="scissors.png";
         computerSelectionDiv.appendChild(computerScissors);
         return "Scissors";
     }
@@ -129,5 +129,3 @@ sButton.addEventListener('click', () => {
 
 const playerSelectionDiv = document.querySelector('#playerSelectionDiv');
 const computerSelectionDiv = document.querySelector('#computerSelectionDiv');
-
-
