@@ -1,24 +1,29 @@
 let playerScore = 0;
 let computerScore = 0;
 
+let playerSelection = null;
+let computerSelection=null;
+
 let resultsDiv = document.querySelector('.resultsDiv');
 let playerScoreDiv = document.querySelector('#playerScoreDiv');
 let computerScoreDiv = document.querySelector('#computerScoreDiv');
 let playerScoreDisplay = document.querySelector('#playerScoreDisplay');
 let computerScoreDisplay = document.querySelector('#computerScoreDisplay');
 
-let resultsDisplay = document.querySelector('.roundResults');
+let resultsDisplay = document.querySelector('#roundResult');
 
 function updateScore() {
     playerScoreDisplay.textContent = `Player: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer: ${computerScore}`;
 }
 
-
 function computerPlay() {
     let num = Math.floor(Math.random() *3); //returns a num: 0,1, or 2
     
-    if (num ===0) return "Rock";
+    if (num ===0){
+        
+        return "Rock";
+    }     
     else if (num === 1) return "Paper";
     else return "Scissors";
 }
@@ -34,6 +39,9 @@ function capitalize(string) {
 function playRound(playerSelection, computerSelection) {
     playerSelection = capitalize(playerSelection);
 
+    while (playerSelectionDiv.hasChildNodes()){
+        playerSelectionDiv.removeChild(playerSelectionDiv.children[0]);
+    }
     
     if (playerSelection == "Rock" && computerSelection == "Rock"){
         updateScore();
@@ -86,14 +94,26 @@ const sButton = document.querySelector('#scissorsButton');
 
 rButton.addEventListener('click', () => {
     playRound("Rock", computerPlay());
+    var playerRock = document.createElement('img');
+    playerRock.src="playerRock.png";
+    playerSelectionDiv.appendChild(playerRock);
 });
 
 pButton.addEventListener('click', () => {
     playRound("Paper", computerPlay());
+    var playerPaper = document.createElement('img');
+    playerPaper.src="playerPaper.png";
+    playerSelectionDiv.appendChild(playerPaper);
 });
 
 sButton.addEventListener('click', () => {
     playRound("Scissors", computerPlay());
+    var playerScissors = document.createElement('img');
+    playerScissors.src="playerScissors.png";
+    playerSelectionDiv.appendChild(playerScissors);
 });
+
+const playerSelectionDiv = document.querySelector('#playerSelectionDiv');
+const computerSelectionDiv = document.querySelector('#computerSelectionDiv');
 
 
