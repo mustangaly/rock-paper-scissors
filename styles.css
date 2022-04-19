@@ -1,14 +1,39 @@
-.resultsDiv {
+body {
     display: flex;
-    border: 1px solid black;
+    flex-flow: column;
+    
+}
+
+h1 {
+    display: flex;
+    align-self: center; 
+}
+
+.bannerDiv {
+    display: flex;
+    justify-content: center;
+}
+.bannerDiv > img {
+    width: 500px;
+}
+
+h2 {
+    display: flex;
+    align-self: center;
+    margin-top: 50px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
 }
 
 .scoreDiv{
     display:flex;
     flex-flow: column;
+    border: 5px solid black;
+    margin-top: 75px;
 }
 
-.scoreDiv {
-    display: flex;
-}
 
