@@ -2,7 +2,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 let playerSelection = null;
-let computerSelection=null;
+let computerSelection= null;
 
 let resultsDiv = document.querySelector('.resultsDiv');
 let playerScoreDiv = document.querySelector('#playerScoreDiv');
@@ -15,6 +15,23 @@ let resultsDisplay = document.querySelector('#roundResult');
 function updateScore() {
     playerScoreDisplay.textContent = `Player: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+}
+
+function checkForWinner() {
+
+    let endGameText;
+
+    if(playerScore == 5) {
+        endGameText = document.createTextNode(" Congratulations! You won the game with the best out of 5 rounds.");
+        resultsDisplay.appendChild(endGameText);
+        playerScore = 0;
+        computerScore = 0;
+    } else if (computerScore == 5) {
+        endGameText = document.createTextNode(" Better luck next time! The computer wins with the best out of 5 rounds.");
+        resultsDisplay.appendChild(endGameText);
+        playerScore = 0;
+        computerScore = 0;
+    } 
 }
 
 function computerPlay() {
@@ -58,45 +75,48 @@ function playRound(playerSelection, computerSelection) {
     }
     
     if (playerSelection == "Rock" && computerSelection == "Rock"){
-        updateScore();
         resultsDisplay.textContent = "It's a tie! You both chose Rock.";
     }
     else if (playerSelection == "Rock" && computerSelection == "Paper") {
         computerScore++;
         updateScore();
-        resultsDisplay.textContent = "You Lose! Paper beats Rock."; 
+        resultsDisplay.textContent = "You Lose! Paper beats Rock.";
+        checkForWinner(); 
     }
     else if (playerSelection == "Rock" && computerSelection == "Scissors"){
         playerScore++;
         updateScore();
         resultsDisplay.textContent =  "You Win! Rock beats Scissors.";
+        checkForWinner();
     }
     else if (playerSelection == "Paper" && computerSelection == "Rock"){
         playerScore++;
         updateScore();
         resultsDisplay.textContent =  "You Win! Paper beats Rock.";
+        checkForWinner();
     }
     else if (playerSelection == "Paper" && computerSelection == "Paper"){
-        updateScore();
         resultsDisplay.textContent =  "It's a tie! You both chose Paper.";
     }
     else if (playerSelection == "Paper" && computerSelection == "Scissors"){
         computerScore++;
         updateScore();
         resultsDisplay.textContent =  "You Lose! Scissors beats Paper.";
+        checkForWinner();
     }
     else if (playerSelection == "Scissors" && computerSelection == "Rock"){
         computerScore++;
         updateScore();
         resultsDisplay.textContent =  "You Lose! Rock beats Scissors.";
+        checkForWinner();
     }
     else if (playerSelection == "Scissors" && computerSelection == "Paper"){
         playerScore++;
         updateScore();
         resultsDisplay.textContent =  "You Win! Scissors beats Paper.";
+        checkForWinner();
     }
     else if (playerSelection == "Scissors" && computerSelection == "Scissors"){
-        updateScore();
         resultsDisplay.textContent =  "It's a tie! You both chose Scissors.";
     }
     else return "Are you sure you entered 'Rock,' 'Paper,' or 'Scissors?'";
